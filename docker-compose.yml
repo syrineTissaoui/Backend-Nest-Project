@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    command: ['nest','start','--watch']
+    container_name: 'test-backend'
+    ports:
+      - '0.0.0.0:3000:3000'
+    volumes:
+      - './src:/app/src:delegated'
+      - './package.json:/app/package.json:delegated'
+      - './node_modules:/app/node_modules:delegated'
+
+networks:
+  default:
+    external: true
+    name: backend

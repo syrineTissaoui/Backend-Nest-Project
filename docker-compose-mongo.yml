@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  mongodb:
+    image : mongo:4.0.28
+    container_name: testbd
+    volumes:
+      - ./database:/data/db
+#      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+#      - ./mongorestore.sh:/docker-entrypoint-initdb.d/mongorestore.sh
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: test
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+      MONGO_INITDB_DATABASE: db
+
+
+networks:
+  default:
+    external: true
+    name: backend

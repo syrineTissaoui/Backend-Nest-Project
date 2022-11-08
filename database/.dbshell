@@ -1,0 +1,14 @@
+show dbs
+show bds
+show dbs
+show dbs
+use db
+use test
+show dbs
+use db
+show dbs
+use db
+use Project
+use db
+show collection
+show collections
